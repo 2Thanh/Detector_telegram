@@ -1,0 +1,55 @@
+1. Tạo account Tele
+
+2. Tạo bot với BotFather
+
+token : 5972711467:AAElDiSKR3ei2oUOjBTWlHOgPVvP-wOK9zw
+
+3. Tạo group chat và lấy ID
+- Tạo cảnh báo : khi có cảnh báo gửi cho người A, người B... thì bạn phải có chat_id của người A, người B
+- ID của Thanh: 5559085957
+
+https://api.telegram.org/bot5972711467:AAElDiSKR3ei2oUOjBTWlHOgPVvP-wOK9zw/getUpdates
+
+https://api.telegram.org/bot[TOKEN]/sendMessage?chat_id=[CHAT_ID]&text=[MY_MESSAGE_TEXT]
+
+
+https://api.telegram.org/bot5972711467:AAElDiSKR3ei2oUOjBTWlHOgPVvP-wOK9zw/sendMessage?chat_id=5559085957&text='goodmorning thanh'
+4. Cài đặt thư viện python-telegram-bot
+
+5. Viết code send text và ảnh
+
+
+def telegram_bot_sendtext(bot_message):
+
+   bot_token = '5972711467:AAElDiSKR3ei2oUOjBTWlHOgPVvP-wOK9zw'
+   bot_chatID = '5559085957'
+   send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
+
+   response = requests.get(send_text)
+
+   return response.json()
+
+
+test = telegram_bot_sendtext("Testing Telegram bot")
+print(test)
+
+
+
+
+
+
+
+
+
+import telegram
+
+my_token = '5972711467:AAElDiSKR3ei2oUOjBTWlHOgPVvP-wOK9zw'
+bot = telegram.Bot(token = my_token)
+
+
+#take a message
+
+async def func():
+    await bot.send_message(chat_id='5559085957', text='From vscode,')
+
+func()
